@@ -4,6 +4,7 @@
 	--bg-color: #1a1a1a;
 	--dark-bg-color: #000;
 	--colour: #D43F52;
+	--light: #fff;
 }
 
 * {
@@ -22,7 +23,7 @@
 	height: 100vh;
 	width: 100%;
 	position: relative;
-	color: white;
+	color: var(--light);
 }
 
 .center {
@@ -30,11 +31,13 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+.text-center {
 	text-align: center;
 }
 
 .hero-box {
-	color: var(--colour);
 	font-size: 40px;
 	padding: 15px 50px;
 	border: 1.5px solid var(--colour);
@@ -47,14 +50,17 @@
 	font-size: 30px;
 }
 
+.c-pointer {
+	cursor: pointer;
+}
+
 .hero-btn {
 	padding: 20px 40px;
 	font-size: 20px;
 	background: none;
-	color: white;
-	border: 1.5px solid white;
+	color: var(--light);
+	border: 1.5px solid var(--light);
 	border-radius: 5px;
-	cursor: pointer;
 	transition: 0.5s;
 	margin: 40px 0;
 }
@@ -69,18 +75,19 @@
 	margin-bottom: 16px;
 }
 
-.component {
+.component,
+.portfolio {
 	background-color: var(--bg-color);
-	color: white;
-	text-align: center;
+	color: var(--light);
 	padding: 100px;
 }
 
-.component .title {
+.component .title,
+.about .progress-bars .bar {
 	margin-bottom: 15px;
 }
 
-.i-do {
+.d-flex {
 	display: flex;
 }
 
@@ -90,15 +97,13 @@
 	text-align: start;
 }
 
-.i-do .card .icon {
+.icon {
 	width: 50px !important;
 	height: 50px;
-	border: 2px solid white;
+	border: 2px solid var(--light);
 	border-radius: 50%;
-	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: var(--colour);
 	flex-shrink: 0;
 	margin: 0 20px;
 }
@@ -114,9 +119,6 @@
 }
 
 .about {
-	background-color: var(--dark-bg-color);
-	color: white;
-	display: flex;
 	padding: 100px 70px;
 }
 
@@ -125,17 +127,18 @@
 	padding: 0 40px;
 }
 
-.about .lavish h1 {
+.about .lavish p,
+.about .lavish h1,
+.about .lavish h3,
+.contact .details h2,
+.portfolio h1 {
 	margin-bottom: 20px;
 }
 
-.about .lavish h3 {
-	margin-bottom: 20px;
+.about .lavish h3,
+.hero-box,
+.icon {
 	color: var(--colour);
-}
-
-.about .lavish p {
-	margin-bottom: 20px;
 }
 
 .about .progress-bars {
@@ -143,12 +146,7 @@
 	padding: 0 40px;
 }
 
-.about .progress-bars .bar {
-	margin-bottom: 15px;
-}
-
 .about .progress-bars .bar .info {
-	display: flex;
 	justify-content: space-between;
 	margin-bottom: -5px;
 }
@@ -163,12 +161,12 @@ progress {
 	height: 5px;
 	border-radius: 50px;
 	overflow: hidden;
-	background-color: white;
+	background-color: var(--light);
 	border: none;
 }
 
 progress::-webkit-progress-bar {
-	background-color: white;
+	background-color: var(--light);
 	border-radius: 50px;
 }
 
@@ -181,13 +179,6 @@ progress::-moz-progress-bar {
 	border-radius: 50px;
 }
 
-.portfolio {
-	background-color: var(--bg-color);
-	color: white;
-	text-align: center;
-	padding: 100px;
-}
-
 .w1\/3 {
 	width: calc(100% / 3.5);
 }
@@ -196,45 +187,36 @@ progress::-moz-progress-bar {
 	width: calc(100% / 2.26);
 }
 
-.portfolio h1 {
-	margin-bottom: 20px;
-}
-
 .portfolio .card {
 	margin: 15px;
 	position: relative;
-	cursor: pointer;
 	height: 300px;
 	display: inline-block;
 }
 
-.portfolio .p-img-1{
+.portfolio .p-img-1 {
 	background: url(../img/portfolio-01.jpg) no-repeat center center/cover;
 }
 
-.portfolio .p-img-2{
+.portfolio .p-img-2 {
 	background: url(../img/portfolio-02.jpg) no-repeat center center/cover;
 }
 
-.portfolio .p-img-3{
+.portfolio .p-img-3 {
 	background: url(../img/portfolio-03.jpg) no-repeat center center/cover;
 }
 
-.portfolio .p-img-4{
+.portfolio .p-img-4 {
 	background: url(../img/portfolio-04.jpg) no-repeat center center/cover;
 }
 
-.portfolio .p-img-5{
+.portfolio .p-img-5 {
 	background: url(../img/portfolio-05.jpg) no-repeat center center/cover;
 }
 
 .portfolio .card .overlay {
-	position: absolute;
-	top: 50%;
-	left: 50%;
 	width: 100%;
 	height: 100%;
-	transform: translate(-50%, -50%);
 	background-color: var(--colour);
 	opacity: 0;
 	transition: 0.8s;
@@ -246,16 +228,81 @@ progress::-moz-progress-bar {
 	width: 85%;
 }
 
-.portfolio .card .overlay h4 {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
 .portfolio .card .overlay h5 {
 	position: absolute;
 	top: 60%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+.contact {
+	padding: 100px;
+}
+
+.contact .details,
+.contact .form {
+	flex-grow: 1;
+}
+
+.contact .details .card {
+	align-items: center;
+	margin-bottom: 7px;
+}
+
+.contact .form form input,
+.contact .form form textarea {
+	display: block;
+}
+
+input,
+textarea {
+	width: 100%;
+	padding: 16px 10px;
+	margin: 15px 0;
+	border: 2px solid var(--light);
+}
+
+textarea {
+	resize: none;
+}
+
+button[type="submit"] {
+	width: 100%;
+	padding: 16px 10px;
+	margin: 15px 0;
+	border: none;
+	background-color: var(--colour);
+	color: var(--light);
+	font-weight: bold;
+}
+
+footer,
+.about,
+.contact,
+textarea,
+input {
+	background-color: var(--dark-bg-color);
+	color: var(--light);
+}
+
+footer hr {
+	width: 10%;
+	margin: 20px auto;
+}
+
+footer p {
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+footer .social-icons {
+	padding: 0 0 20px 0;
+}
+
+footer .social-icons a {
+	margin: 0 10px;
+	font-size: 15px;
+	color: var(--light);
+	transition: 0.5s;
+	text-decoration: none;
 }
